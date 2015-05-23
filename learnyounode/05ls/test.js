@@ -1,0 +1,1 @@
+console.log(path.extname('index.html'));
