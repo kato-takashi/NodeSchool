@@ -12,7 +12,7 @@ module.exports = function (url) {
 		});
 
 		res.on('end', function(res){
-			ret = JSON.parse(body);
+			// ret = JSON.parse(body);
 			// console.log(ret);
 		});
 	}).on('error', function(e){
