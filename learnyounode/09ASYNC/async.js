@@ -25,6 +25,7 @@ var http = require('http');
 module.exports = function (url1, url2, url3) {
 var urlArr = [url1, url2, url3];
 var resArr = [];
+var count = 0;
 var urlNum =urlArr.length;
 
 	function getHttp(int){
@@ -43,13 +44,10 @@ var urlNum =urlArr.length;
 				// ret = JSON.parse(body);
 				// console.log(body);
 				resArr[int] = body;
+				count++
 
-				if(resArr.length === urlNum){
-					// resArr.forEach(function(num){
-					//     console.log(num);
-					// });
-					printResults();
-				}
+		      if (count == 3)
+		        printResults()
 			});
 		}).on('error', function(e){
 			console.log('errorです。' + e.message); //エラー時
@@ -62,11 +60,12 @@ var urlNum =urlArr.length;
 	}
 
 	function printResults () {
-	  for (var i = 0; i < urlNum; i++)
-		    console.log(resArr[i])
-		}
+	  for (var i = 0; i < urlNum; i++){
+	  	    console.log(resArr[i])
+	  }
+	}
 }
-
+//非同期
 // function three (callback){
 // 	getHttp(urlArr[0]);
 // 	// console.log(3);
